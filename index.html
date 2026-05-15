@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prix • Holder Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        :root {
+            --primary: #7c3aed;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .nft-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                       box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .nft-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .accent {
+            color: #a78bfa;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-active {
+            color: white;
+            position: relative;
+        }
+        
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #7c3aed, #a78bfa);
+        }
+
+        .countdown-digit {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0f] text-white">
+    <!-- Navbar -->
+    <nav class="border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center">
+                        <i class="fa-solid fa-ticket text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-3xl font-semibold tracking-tighter">The Prix</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm">
+                    <a href="#mint" class="hover:text-white/80 transition-colors">June 27 Mint</a>
+                    <a href="#benefits" class="hover:text-white/80 transition-colors">Benefits</a>
+                    <a href="#dashboard" class="hover:text-white/80 transition-colors">Dashboard</a>
+                    <a href="#revenue" class="hover:text-white/80 transition-colors">Revenue</a>
+                </div>
+
+                <div class="flex items-center gap-x-4">
+                    <button onclick="connectWallet()" 
+                            class="px-6 py-2.5 rounded-2xl bg-white text-black font-medium text-sm flex items-center gap-x-2 hover:bg-white/90 transition-all active:scale-[0.985]">
+                        <i class="fa-solid fa-wallet mr-2"></i>
+                        <span id="connect-text">Connect Wallet</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
+        <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-white/5 border border-white/10 mb-6">
+            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+            <span class="text-sm font-medium">Community First • Art Driven</span>
+        </div>
+        
+        <h1 class="text-7xl md:text-8xl font-display font-bold tracking-tighter leading-none mb-6">
+            Welcome to<br>
+            <span class="gradient-text">The Prix</span>
+        </h1>
+        
+        <p class="max-w-2xl mx-auto text-xl text-white/70 mb-10">
+            The official holder portal for Prixville Ticket collectors.<br>
+            Track your NFTs, claim royalties, and unlock free mints.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#mint" 
+               class="px-8 py-4 rounded-3xl bg-white text-black font-semibold flex items-center justify-center gap-x-3 hover:bg-white/90 transition-all text-lg">
+                <span>View June 27 Mint</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            
+            <button onclick="document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' })" 
+                    class="px-8 py-4 rounded-3xl border border-white/20 hover:bg-white/5 transition-all text-lg font-medium">
+                Open Dashboard
+            </button>
+        </div>
+
+        <div class="mt-12 flex justify-center gap-x-8 text-sm text-white/50">
+            <div class="flex items-center gap-x-2">
+                <i class="fa-brands fa-twitter"></i>
+                <span>@theprixxxxx</span>
+            </div>
+            <div>
+                <a href="https://opensea.io/collection/prixville-ticket" target="_blank" class="hover:text-white/70 transition-colors">OpenSea ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- June 27 Mint Section -->
+    <div id="mint" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block px-4 py-1 rounded-2xl bg-violet-500/10 text-violet-400 text-sm font-medium mb-4">
+                    UPCOMING DROP
+                </div>
+                <h2 class="section-header tracking-tighter mb-6">June 27 Mint</h2>
+                <p class="text-lg text-white/70 mb-8">
+                    The next chapter of The Prix drops on June 27th. 
+                    Prixville Ticket holders get <span class="text-white font-medium">free mint access</span>.
+                </p>
+
+                <div class="flex items-center gap-x-4">
+                    <a href="https://opensea.io/collection/prix-931764021/overview" target="_blank"
+                       class="inline-flex items-center px-6 py-3.5 rounded-2xl bg-violet-600 hover:bg-violet-500 transition-colors font-semibold">
+                        <span>View on OpenSea</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="glass rounded-3xl p-8">
+                <div class="text-center mb-6">
+                    <div class="text-sm uppercase tracking-[2px] text-white/50 mb-1">MINTING IN</div>
+                    <div id="countdown" class="font-display text-5xl font-bold tracking-tighter">
+                        --d --h --m --s
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-4 gap-3 text-center">
+                    <div>
+                        <div class="text-3xl font-semibold" id="days">--</div>
+                        <div class="text-xs text-white/50 mt-1">DAYS</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-semibold" id="hours">--</div>
+                        <div class="text-xs text-white/50 mt-1">HOURS</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-semibold" id="minutes">--</div>
+                        <div class="text-xs text-white/50 mt-1">MIN</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-semibold" id="seconds">--</div>
+                        <div class="text-xs text-white/50 mt-1">SEC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div id="benefits" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="text-center mb-12">
+            <h2 class="section-header tracking-tighter mb-3">Holder Benefits</h2>
+            <p class="text-white/60 max-w-md mx-auto">Being a Prixville Ticket holder unlocks real utility</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Royalties Card -->
+            <div class="glass rounded-3xl p-8">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-coins text-emerald-400 text-3xl"></i>
+                </div>
+                <h3 class="text-3xl font-semibold mb-3">Revenue Sharing & Royalties</h3>
+                <p class="text-white/70 mb-6">
+                    Owners of Prixville Tickets are entitled to a share of royalties from secondary market sales. 
+                    Your holdings directly contribute to ongoing revenue.
+                </p>
+                <div class="text-sm px-4 py-2 bg-white/5 rounded-2xl inline-block">
+                    <span class="text-emerald-400">Active</span> • Royalties enabled on contract
+                </div>
+            </div>
+
+            <!-- Free Mint Card -->
+            <div class="glass rounded-3xl p-8">
+                <div class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-ticket text-violet-400 text-3xl"></i>
+                </div>
+                <h3 class="text-3xl font-semibold mb-3">Free Mint Access</h3>
+                <p class="text-white/70 mb-6">
+                    All Prixville Ticket holders receive <strong>free mint</strong> access to the June 27 collection. 
+                    No payment required if you hold at least one ticket.
+                </p>
+                
+                <div class="flex items-center gap-x-2 text-sm">
+                    <div class="px-3 py-1 bg-white/5 rounded-xl text-xs">Also available to Meatball World holders</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <h2 class="section-header tracking-tighter">Your Dashboard</h2>
+                <p class="text-white/60">Connect your wallet to view your holdings and estimated revenue share</p>
+            </div>
+        </div>
+
+        <div id="wallet-disconnected" class="glass rounded-3xl p-10 text-center">
+            <i class="fa-solid fa-wallet text-5xl text-white/30 mb-6"></i>
+            <h3 class="text-2xl font-semibold mb-2">Connect Your Wallet</h3>
+            <p class="text-white/60 max-w-xs mx-auto mb-8">See how many Prixville Tickets you hold and your estimated royalty share.</p>
+            
+            <button onclick="connectWallet()" 
+                    class="px-8 py-4 bg-white text-black font-semibold rounded-3xl flex items-center gap-x-3 mx-auto hover:bg-white/90 transition-all">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Connect Wallet</span>
+            </button>
+        </div>
+
+        <!-- Connected Dashboard (hidden by default) -->
+        <div id="wallet-connected" class="hidden">
+            <div class="glass rounded-3xl p-8">
+                <div class="flex justify-between items-start mb-8">
+                    <div>
+                        <div class="text-sm text-white/50">CONNECTED WALLET</div>
+                        <div id="wallet-address" class="font-mono text-lg"></div>
+                    </div>
+                    <button onclick="disconnectWallet()" class="text-sm px-4 py-2 hover:bg-white/5 rounded-2xl">Disconnect</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Holdings -->
+                    <div class="bg-white/5 rounded-2xl p-6">
+                        <div class="text-sm text-white/50 mb-1">PRIXVILLE TICKETS</div>
+                        <div class="text-5xl font-semibold" id="ticket-count">--</div>
+                        <div class="text-emerald-400 text-sm mt-1">Holders get royalties + free mint</div>
+                    </div>
+
+                    <div class="bg-white/5 rounded-2xl p-6">
+                        <div class="text-sm text-white/50 mb-1">EST. REVENUE SHARE</div>
+                        <div class="text-5xl font-semibold" id="revenue-share">--</div>
+                        <div class="text-xs text-white/50 mt-2">Based on current holdings (demo)</div>
+                    </div>
+
+                    <div class="bg-white/5 rounded-2xl p-6 flex flex-col">
+                        <div class="text-sm text-white/50 mb-1">FREE MINT STATUS</div>
+                        <div class="mt-auto">
+                            <div class="inline-flex items-center gap-x-2 px-4 py-2 bg-emerald-500/10 text-emerald-400 rounded-2xl text-sm font-medium">
+                                <i class="fa-solid fa-check"></i>
+                                <span>Eligible for June 27 Free Mint</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-white/10 text-sm text-white/50">
+                    Real on-chain data integration coming soon. This is currently a demo.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Section -->
+    <div id="revenue" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="max-w-2xl">
+            <h2 class="section-header tracking-tighter mb-6">Revenue Sharing</h2>
+            <p class="text-xl text-white/70">
+                As a Prixville Ticket holder, you are entitled to royalties from secondary sales. 
+                The more tickets you hold, the larger your share of the revenue pool.
+            </p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+            <div class="glass p-6 rounded-3xl">
+                <div class="font-semibold mb-2">How it works</div>
+                <p class="text-sm text-white/70">Royalties are collected on secondary sales and distributed proportionally to current Prixville Ticket holders.</p>
+            </div>
+            <div class="glass p-6 rounded-3xl">
+                <div class="font-semibold mb-2">Claiming</div>
+                <p class="text-sm text-white/70">A claim function will be added so you can withdraw your earned ETH directly from this portal.</p>
+            </div>
+            <div class="glass p-6 rounded-3xl">
+                <div class="font-semibold mb-2">Transparency</div>
+                <p class="text-sm text-white/70">All royalty activity is on-chain and verifiable via the smart contract.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-white/10 py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center text-sm text-white/50">
+            <p>The Prix • Built for the community by @drylinemix</p>
+            <p class="mt-2">Contract: <span class="font-mono text-xs">0x391C31B74fB6824ed22a59eE325c0eCAF3bBDCc8</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#a78bfa');
+        }
+
+        // Countdown to June 27, 2026
+        function startCountdown() {
+            const targetDate = new Date('2026-06-27T00:00:00').getTime();
+            
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    document.getElementById('countdown').innerHTML = "MINTING SOON";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days;
+                document.getElementById('hours').innerText = hours;
+                document.getElementById('minutes').innerText = minutes;
+                document.getElementById('seconds').innerText = seconds;
+            }, 1000);
+        }
+
+        // Wallet Connection (Mock for now)
+        let isConnected = false;
+
+        async function connectWallet() {
+            const connectText = document.getElementById('connect-text');
+            
+            if (!isConnected) {
+                // Simulate connection
+                connectText.innerHTML = 'Connecting...';
+                
+                setTimeout(() => {
+                    isConnected = true;
+                    connectText.innerHTML = 'Connected';
+                    
+                    // Show connected dashboard
+                    document.getElementById('wallet-disconnected').classList.add('hidden');
+                    document.getElementById('wallet-connected').classList.remove('hidden');
+                    
+                    // Mock wallet address
+                    const mockAddress = '0x' + Math.random().toString(16).substr(2, 8) + '...' + Math.random().toString(16).substr(2, 4);
+                    document.getElementById('wallet-address').innerText = mockAddress;
+                    
+                    // Mock data
+                    document.getElementById('ticket-count').innerText = Math.floor(Math.random() * 5) + 1;
+                    document.getElementById('revenue-share').innerText = (Math.random() * 1.2 + 0.3).toFixed(2) + ' ETH';
+                }, 1200);
+            }
+        }
+
+        function disconnectWallet() {
+            isConnected = false;
+            document.getElementById('wallet-disconnected').classList.remove('hidden');
+            document.getElementById('wallet-connected').classList.add('hidden');
+            document.getElementById('connect-text').innerHTML = 'Connect Wallet';
+        }
+
+        // Initialize everything
+        function init() {
+            initializeTailwind();
+            startCountdown();
+            
+            // Optional: Auto-show demo after some time (comment out if not wanted)
+            // setTimeout(() => {
+            //     if (!isConnected) {
+            //         // Could auto prompt or leave as is
+            //     }
+            // }, 8000);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
