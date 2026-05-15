@@ -31,13 +31,14 @@
             letter-spacing: -0.04em;
         }
 
-        .video-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .art-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            overflow: hidden;
         }
         
-        .video-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        .art-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
         }
 
         .gradient-text {
@@ -66,7 +67,7 @@
                 </div>
 
                 <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                    <a href="#featured" class="hover:text-white/80 transition-colors">Featured Work</a>
+                    <a href="#artwork" class="hover:text-white/80 transition-colors">Artwork</a>
                     <a href="#mint" class="hover:text-white/80 transition-colors">June 27 Mint</a>
                     <a href="#benefits" class="hover:text-white/80 transition-colors">Benefits</a>
                     <a href="#dashboard" class="hover:text-white/80 transition-colors">Dashboard</a>
@@ -90,99 +91,110 @@
             <span class="text-sm font-medium tracking-wider">ART • UTILITY • COMMUNITY</span>
         </div>
         
-        <h1 class="text-7xl md:text-[5.5rem] font-display font-bold tracking-[-4.5px] leading-none mb-6">
+        <h1 class="text-7xl md:text-[5.8rem] font-display font-bold tracking-[-5px] leading-none mb-6">
             The Prix<br>
             <span class="gradient-text">Holder Portal</span>
         </h1>
         
-        <p class="max-w-xl mx-auto text-2xl text-white/70 mb-10 tracking-tight">
-            Where your tickets unlock royalties and exclusive access.
+        <p class="max-w-2xl mx-auto text-2xl text-white/70 mb-10">
+            Where your tickets unlock royalties, free mints, and access to the art.
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#featured" 
-               class="px-8 py-4 rounded-3xl bg-white text-black font-semibold text-lg flex items-center justify-center gap-x-3 hover:bg-white/90 transition-all">
-                Explore Featured Work
+            <a href="#artwork" class="px-9 py-4 rounded-3xl bg-white text-black font-semibold text-lg flex items-center justify-center gap-x-3 hover:bg-white/90 transition-all">
+                Explore the Art
             </a>
-            
             <button onclick="document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' })" 
-                    class="px-8 py-4 rounded-3xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
+                    class="px-9 py-4 rounded-3xl border border-white/20 hover:bg-white/5 font-medium text-lg transition-all">
                 Open Dashboard
             </button>
         </div>
     </div>
 
-    <!-- Featured Work Section -->
-    <div id="featured" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/10">
+    <!-- Artwork Section -->
+    <div id="artwork" class="max-w-7xl mx-auto px-6 py-16 border-t border-white/10">
+        <div class="flex items-end justify-between mb-10">
+            <div>
+                <div class="text-violet-400 text-sm font-medium tracking-[2px] mb-2">THE ART</div>
+                <h2 class="section-header tracking-[-2.5px]">Featured Artwork</h2>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/q6gnvUK.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 1">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/q5PQI0j.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 2">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/uzxOhkd.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 3">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/L1xcGkA.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 4">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/JbmZL5Z.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 5">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/Aoc3uvZ.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 6">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/xf1JwUr.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 7">
+            </div>
+            <div class="art-card rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://i.imgur.com/Bo3eScL.jpg" class="w-full aspect-square object-cover" alt="The Prix Artwork 8">
+            </div>
+        </div>
+    </div>
+
+    <!-- Videos Section -->
+    <div class="max-w-7xl mx-auto px-6 py-16 border-t border-white/10">
         <div class="flex items-end justify-between mb-10">
             <div>
                 <div class="text-violet-400 text-sm font-medium tracking-[2px] mb-2">FROM THE STUDIO</div>
-                <h2 class="section-header tracking-[-2px]">Featured Work</h2>
+                <h2 class="section-header tracking-[-2px]">Recent Videos & Drops</h2>
             </div>
-            <a href="https://x.com/theprixxxxx" target="_blank" class="hidden md:flex items-center gap-x-2 text-sm hover:text-white/70">
-                View all on X <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i>
-            </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Video Cards -->
-            <div class="video-card glass rounded-3xl overflow-hidden group">
-                <div class="aspect-video bg-black/60 flex items-center justify-center relative">
-                    <i class="fa-solid fa-play text-5xl text-white/70 group-hover:text-white transition-colors"></i>
-                    <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/70 rounded-xl text-xs">Video</div>
+            <div class="art-card glass rounded-3xl overflow-hidden group">
+                <div class="aspect-video bg-black/70 flex items-center justify-center relative">
+                    <i class="fa-solid fa-play text-6xl text-white/70 group-hover:text-white transition-colors"></i>
                 </div>
                 <div class="p-5">
                     <div class="font-semibold mb-1">Anonymous Meatball Mint</div>
-                    <div class="text-sm text-white/60 mb-4">June 27 Drop Teaser</div>
-                    <a href="https://x.com/theprixxxxx/status/2054449950847909941" target="_blank" 
-                       class="text-sm flex items-center gap-x-2 text-violet-400 hover:text-violet-300">
-                        Watch on X <i class="fa-solid fa-external-link-alt text-xs"></i>
-                    </a>
+                    <a href="https://x.com/theprixxxxx/status/2054449950847909941" target="_blank" class="text-sm text-violet-400 hover:text-violet-300 flex items-center gap-x-1 mt-1">Watch on X →</a>
                 </div>
             </div>
 
-            <div class="video-card glass rounded-3xl overflow-hidden group">
-                <div class="aspect-video bg-black/60 flex items-center justify-center relative">
-                    <i class="fa-solid fa-play text-5xl text-white/70 group-hover:text-white transition-colors"></i>
-                    <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/70 rounded-xl text-xs">Video</div>
+            <div class="art-card glass rounded-3xl overflow-hidden group">
+                <div class="aspect-video bg-black/70 flex items-center justify-center relative">
+                    <i class="fa-solid fa-play text-6xl text-white/70 group-hover:text-white transition-colors"></i>
                 </div>
                 <div class="p-5">
                     <div class="font-semibold mb-1">Revenue Sharing Ticket Giveaway</div>
-                    <div class="text-sm text-white/60 mb-4">In honor of new artwork</div>
-                    <a href="https://x.com/theprixxxxx/status/2053901851305906218" target="_blank" 
-                       class="text-sm flex items-center gap-x-2 text-violet-400 hover:text-violet-300">
-                        Watch on X <i class="fa-solid fa-external-link-alt text-xs"></i>
-                    </a>
+                    <a href="https://x.com/theprixxxxx/status/2053901851305906218" target="_blank" class="text-sm text-violet-400 hover:text-violet-300 flex items-center gap-x-1 mt-1">Watch on X →</a>
                 </div>
             </div>
 
-            <div class="video-card glass rounded-3xl overflow-hidden group">
-                <div class="aspect-video bg-black/60 flex items-center justify-center relative">
-                    <i class="fa-solid fa-play text-5xl text-white/70 group-hover:text-white transition-colors"></i>
-                    <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/70 rounded-xl text-xs">Video</div>
+            <div class="art-card glass rounded-3xl overflow-hidden group">
+                <div class="aspect-video bg-black/70 flex items-center justify-center relative">
+                    <i class="fa-solid fa-play text-6xl text-white/70 group-hover:text-white transition-colors"></i>
                 </div>
                 <div class="p-5">
                     <div class="font-semibold mb-1">Gladiator Richard</div>
-                    <div class="text-sm text-white/60 mb-4">Are you not entertained?</div>
-                    <a href="https://x.com/theprixxxxx/status/2051091459097440692" target="_blank" 
-                       class="text-sm flex items-center gap-x-2 text-violet-400 hover:text-violet-300">
-                        Watch on X <i class="fa-solid fa-external-link-alt text-xs"></i>
-                    </a>
+                    <a href="https://x.com/theprixxxxx/status/2051091459097440692" target="_blank" class="text-sm text-violet-400 hover:text-violet-300 flex items-center gap-x-1 mt-1">Watch on X →</a>
                 </div>
             </div>
 
-            <div class="video-card glass rounded-3xl overflow-hidden group">
-                <div class="aspect-video bg-black/60 flex items-center justify-center relative">
-                    <i class="fa-solid fa-play text-5xl text-white/70 group-hover:text-white transition-colors"></i>
-                    <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/70 rounded-xl text-xs">Video</div>
+            <div class="art-card glass rounded-3xl overflow-hidden group">
+                <div class="aspect-video bg-black/70 flex items-center justify-center relative">
+                    <i class="fa-solid fa-play text-6xl text-white/70 group-hover:text-white transition-colors"></i>
                 </div>
                 <div class="p-5">
                     <div class="font-semibold mb-1">Meatball Evolution</div>
-                    <div class="text-sm text-white/60 mb-4">Latest studio drop</div>
-                    <a href="https://x.com/theprixxxxx/status/2050470099480383501" target="_blank" 
-                       class="text-sm flex items-center gap-x-2 text-violet-400 hover:text-violet-300">
-                        Watch on X <i class="fa-solid fa-external-link-alt text-xs"></i>
-                    </a>
+                    <a href="https://x.com/theprixxxxx/status/2050470099480383501" target="_blank" class="text-sm text-violet-400 hover:text-violet-300 flex items-center gap-x-1 mt-1">Watch on X →</a>
                 </div>
             </div>
         </div>
@@ -195,24 +207,23 @@
                 <div class="text-violet-400 text-sm font-semibold tracking-[2px] mb-3">NEXT DROP</div>
                 <h2 class="section-header tracking-[-2.5px] mb-6">June 27 Mint</h2>
                 <p class="text-xl text-white/70 mb-8">
-                    Prixville Ticket holders receive <span class="text-white font-medium">free mint access</span> to the upcoming collection.
+                    Prixville Ticket holders receive <span class="text-white font-medium">free mint access</span>.
                 </p>
-                <a href="https://opensea.io/collection/prix-931764021/overview" target="_blank"
-                   class="inline-flex items-center px-7 py-4 rounded-3xl bg-white text-black font-semibold hover:bg-white/90">
+                <a href="https://opensea.io/collection/prix-931764021/overview" target="_blank" class="inline-flex px-8 py-4 rounded-3xl bg-white text-black font-semibold hover:bg-white/90">
                     View Collection on OpenSea
                 </a>
             </div>
 
             <div class="glass rounded-3xl p-8 mt-10 md:mt-0">
                 <div class="text-center">
-                    <div class="text-sm text-white/50 mb-2 tracking-widest">MINTING STARTS IN</div>
+                    <div class="text-sm text-white/50 mb-2 tracking-widest">MINTING IN</div>
                     <div id="countdown" class="font-display text-6xl font-bold tracking-tighter mb-6">--d --h --m --s</div>
                 </div>
-                <div class="grid grid-cols-4 text-center text-sm">
-                    <div><span id="days" class="font-semibold text-3xl">--</span><div class="text-white/50 text-xs mt-1">DAYS</div></div>
-                    <div><span id="hours" class="font-semibold text-3xl">--</span><div class="text-white/50 text-xs mt-1">HOURS</div></div>
-                    <div><span id="minutes" class="font-semibold text-3xl">--</span><div class="text-white/50 text-xs mt-1">MIN</div></div>
-                    <div><span id="seconds" class="font-semibold text-3xl">--</span><div class="text-white/50 text-xs mt-1">SEC</div></div>
+                <div class="grid grid-cols-4 text-center">
+                    <div><span id="days" class="font-semibold text-4xl">--</span><div class="text-xs text-white/50 mt-1">DAYS</div></div>
+                    <div><span id="hours" class="font-semibold text-4xl">--</span><div class="text-xs text-white/50 mt-1">HOURS</div></div>
+                    <div><span id="minutes" class="font-semibold text-4xl">--</span><div class="text-xs text-white/50 mt-1">MIN</div></div>
+                    <div><span id="seconds" class="font-semibold text-4xl">--</span><div class="text-xs text-white/50 mt-1">SEC</div></div>
                 </div>
             </div>
         </div>
@@ -222,35 +233,24 @@
     <div id="benefits" class="max-w-6xl mx-auto px-6 py-16 border-t border-white/10">
         <div class="text-center mb-12">
             <h2 class="section-header tracking-[-2px] mb-3">Holder Benefits</h2>
-            <p class="text-white/60">Prixville Ticket ownership comes with real utility</p>
+            <p class="text-white/60">Real utility for Prixville Ticket holders</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
             <div class="glass rounded-3xl p-9">
-                <div class="flex items-center gap-x-4 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-coins text-emerald-400 text-3xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-semibold">Revenue Sharing</h3>
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-coins text-emerald-400 text-4xl"></i>
                 </div>
-                <p class="text-white/70 text-lg">
-                    Owners of Prixville Tickets are entitled to royalties from secondary market sales. Your holdings directly contribute to ongoing revenue distribution.
-                </p>
+                <h3 class="text-3xl font-semibold mb-4">Revenue Sharing & Royalties</h3>
+                <p class="text-white/70">Owners of Prixville Tickets are entitled to royalties from secondary sales.</p>
             </div>
 
             <div class="glass rounded-3xl p-9">
-                <div class="flex items-center gap-x-4 mb-6">
-                    <div class="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center">
-                        <i class="fa-solid fa-ticket text-violet-400 text-3xl"></i>
-                    </div>
-                    <h3 class="text-3xl font-semibold">Free Mint Access</h3>
+                <div class="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-ticket text-violet-400 text-4xl"></i>
                 </div>
-                <p class="text-white/70 text-lg mb-4">
-                    Every Prixville Ticket holder receives free mint access to the June 27 collection.
-                </p>
-                <div class="text-sm px-4 py-2 bg-white/5 rounded-2xl inline-block">
-                    Also available to Meatball World holders
-                </div>
+                <h3 class="text-3xl font-semibold mb-4">Free Mint Access</h3>
+                <p class="text-white/70">Every Prixville Ticket holder gets free mint access to the June 27 collection.</p>
             </div>
         </div>
     </div>
@@ -259,16 +259,14 @@
     <div id="dashboard" class="max-w-5xl mx-auto px-6 py-16 border-t border-white/10">
         <div class="mb-8">
             <h2 class="section-header tracking-[-2px]">Your Dashboard</h2>
-            <p class="text-white/60 mt-2">Connect your wallet to view holdings and estimated revenue share</p>
+            <p class="text-white/60">Connect your wallet to view holdings and estimated revenue share</p>
         </div>
 
         <div id="wallet-disconnected" class="glass rounded-3xl p-12 text-center">
             <i class="fa-solid fa-wallet text-6xl text-white/20 mb-6"></i>
             <h3 class="text-3xl font-semibold mb-3">Connect Your Wallet</h3>
-            <p class="text-white/60 max-w-sm mx-auto mb-8">See your Prixville Tickets, revenue estimate, and free mint eligibility.</p>
-            
-            <button onclick="connectWallet()" 
-                    class="px-10 py-4 bg-white text-black font-semibold rounded-3xl text-lg flex items-center gap-x-3 mx-auto hover:bg-white/90">
+            <p class="max-w-sm mx-auto text-white/60 mb-8">See your Prixville Tickets and revenue estimate.</p>
+            <button onclick="connectWallet()" class="px-10 py-4 bg-white text-black font-semibold rounded-3xl flex items-center gap-x-3 mx-auto">
                 <i class="fa-solid fa-wallet"></i>
                 <span>Connect Wallet</span>
             </button>
@@ -285,93 +283,63 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white/5 rounded-2xl p-6">
-                    <div class="text-sm text-white/50">PRIXVILLE TICKETS</div>
+                    <div class="text-sm text-white/50">YOUR TICKETS</div>
                     <div id="ticket-count" class="text-6xl font-semibold mt-2">--</div>
                 </div>
                 <div class="bg-white/5 rounded-2xl p-6">
                     <div class="text-sm text-white/50">EST. REVENUE SHARE</div>
                     <div id="revenue-share" class="text-6xl font-semibold mt-2">-- ETH</div>
                 </div>
-                <div class="bg-white/5 rounded-2xl p-6 flex flex-col">
-                    <div class="text-sm text-white/50 mb-3">FREE MINT STATUS</div>
+                <div class="bg-white/5 rounded-2xl p-6">
+                    <div class="text-sm text-white/50 mb-2">FREE MINT STATUS</div>
                     <div class="mt-auto">
-                        <div class="inline-flex px-5 py-3 bg-emerald-500/10 text-emerald-400 rounded-2xl text-sm font-medium items-center gap-x-2">
-                            <i class="fa-solid fa-check"></i>
-                            <span>Eligible for June 27 Free Mint</span>
-                        </div>
+                        <span class="px-5 py-3 bg-emerald-500/10 text-emerald-400 rounded-2xl text-sm font-medium">Eligible for June 27</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="border-t border-white/10 py-10">
-        <div class="max-w-5xl mx-auto px-6 text-center text-sm text-white/50">
-            <p>The Prix • Contract: <span class="font-mono">0x391C31B74fB6824ed22a59eE325c0eCAF3bBDCc8</span></p>
-        </div>
+    <footer class="border-t border-white/10 py-10 text-center text-sm text-white/50">
+        <p>The Prix • Contract: <span class="font-mono">0x391C31B74fB6824ed22a59eE325c0eCAF3bBDCc8</span></p>
     </footer>
 
     <script>
-        function initializeTailwind() {
-            // Tailwind is already loaded via CDN
-        }
-
         function startCountdown() {
-            const targetDate = new Date('2026-06-27T00:00:00').getTime();
-            
+            const target = new Date('2026-06-27T00:00:00').getTime();
             setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    document.getElementById('countdown').innerHTML = "LIVE SOON";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = days;
-                document.getElementById('hours').innerText = hours;
-                document.getElementById('minutes').innerText = minutes;
-                document.getElementById('seconds').innerText = seconds;
+                const now = Date.now();
+                const diff = target - now;
+                if (diff < 0) { document.getElementById('countdown').innerHTML = 'LIVE SOON'; return; }
+                document.getElementById('days').innerText = Math.floor(diff / 86400000);
+                document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000);
+                document.getElementById('minutes').innerText = Math.floor((diff % 3600000) / 60000);
+                document.getElementById('seconds').innerText = Math.floor((diff % 60000) / 1000);
             }, 1000);
         }
 
-        let isConnected = false;
-
-        async function connectWallet() {
-            const btnText = document.getElementById('connect-text');
-            btnText.innerHTML = 'Connecting...';
-
+        function connectWallet() {
+            const btn = document.getElementById('connect-text');
+            btn.innerHTML = 'Connecting...';
             setTimeout(() => {
-                isConnected = true;
-                btnText.innerHTML = 'Connected';
+                document.getElementById('connect-text').innerHTML = 'Connected';
                 document.getElementById('wallet-disconnected').classList.add('hidden');
                 document.getElementById('wallet-connected').classList.remove('hidden');
-
-                const mockAddr = '0x' + Math.random().toString(16).slice(2, 10) + '...' + Math.random().toString(16).slice(2, 6);
-                document.getElementById('wallet-address').innerText = mockAddr;
-                document.getElementById('ticket-count').innerText = Math.floor(Math.random() * 4) + 1;
-                document.getElementById('revenue-share').innerText = (Math.random() * 1.4 + 0.4).toFixed(2) + ' ETH';
-            }, 1100);
+                document.getElementById('wallet-address').innerText = '0x' + Math.random().toString(16).slice(2,10) + '...' + Math.random().toString(16).slice(2,6);
+                document.getElementById('ticket-count').innerText = Math.floor(Math.random()*4)+1;
+                document.getElementById('revenue-share').innerText = (Math.random()*1.3 + 0.5).toFixed(2) + ' ETH';
+            }, 900);
         }
 
         function disconnectWallet() {
-            isConnected = false;
             document.getElementById('wallet-disconnected').classList.remove('hidden');
             document.getElementById('wallet-connected').classList.add('hidden');
             document.getElementById('connect-text').innerHTML = 'Connect Wallet';
         }
 
-        function init() {
-            initializeTailwind();
+        window.onload = function() {
             startCountdown();
         }
-
-        window.onload = init;
     </script>
 </body>
 </html>
